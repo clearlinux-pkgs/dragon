@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : dragon
-Version  : 18.12.2
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.2/src/dragon-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/dragon-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/dragon-18.12.2.tar.xz.sig
-Summary  : No detailed summary available
+Version  : 18.12.3
+Release  : 5
+URL      : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz.sig
+Summary  : A multimedia player where the focus is on simplicity, instead of features
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: dragon-bin = %{version}-%{release}
@@ -21,14 +21,7 @@ Requires: dragon-locales = %{version}-%{release}
 Requires: dragon-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : knotifications-dev
-BuildRequires : kparts-dev
-BuildRequires : ktextwidgets-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : phonon-dev
-BuildRequires : sonnet-dev
 
 %description
 INTRODUCTION
@@ -42,7 +35,6 @@ Summary: bin components for the dragon package.
 Group: Binaries
 Requires: dragon-data = %{version}-%{release}
 Requires: dragon-license = %{version}-%{release}
-Requires: dragon-man = %{version}-%{release}
 
 %description bin
 bin components for the dragon package.
@@ -100,22 +92,23 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-18.12.2
+%setup -q -n dragon-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549878779
+export SOURCE_DATE_EPOCH=1551983171
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549878779
+export SOURCE_DATE_EPOCH=1551983171
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp COPYING %{buildroot}/usr/share/package-licenses/dragon/COPYING
