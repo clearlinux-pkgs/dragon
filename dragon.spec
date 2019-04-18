@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : dragon
-Version  : 18.12.3
-Release  : 6
-URL      : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/dragon-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 7
+URL      : https://download.kde.org/stable/applications/19.04.0/src/dragon-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/dragon-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/dragon-19.04.0.tar.xz.sig
 Summary  : A multimedia player where the focus is on simplicity, instead of features
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -21,14 +21,7 @@ Requires: dragon-locales = %{version}-%{release}
 Requires: dragon-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : knotifications-dev
-BuildRequires : kparts-dev
-BuildRequires : ktextwidgets-dev
-BuildRequires : kwindowsystem-dev
 BuildRequires : phonon-dev
-BuildRequires : sonnet-dev
 
 %description
 INTRODUCTION
@@ -99,14 +92,14 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-18.12.3
+%setup -q -n dragon-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555317703
+export SOURCE_DATE_EPOCH=1555599639
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -114,7 +107,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555317703
+export SOURCE_DATE_EPOCH=1555599639
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp COPYING %{buildroot}/usr/share/package-licenses/dragon/COPYING
@@ -148,8 +141,6 @@ popd
 /usr/share/icons/oxygen/scalable/actions/player-volume-muted.svgz
 /usr/share/kservices5/ServiceMenus/dragonplayer_play_dvd.desktop
 /usr/share/kservices5/dragonplayer_part.desktop
-/usr/share/kxmlgui5/dragonplayer/dragonlogo.png
-/usr/share/kxmlgui5/dragonplayer/dragonplayerui.rc
 /usr/share/metainfo/org.kde.dragonplayer.appdata.xml
 /usr/share/solid/actions/dragonplayer-openaudiocd.desktop
 /usr/share/solid/actions/dragonplayer-opendvd.desktop
@@ -175,10 +166,6 @@ popd
 /usr/share/doc/HTML/fr/dragonplayer/index.docbook
 /usr/share/doc/HTML/gl/dragonplayer/index.cache.bz2
 /usr/share/doc/HTML/gl/dragonplayer/index.docbook
-/usr/share/doc/HTML/id/dragonplayer/index.cache.bz2
-/usr/share/doc/HTML/id/dragonplayer/index.docbook
-/usr/share/doc/HTML/id/dragonplayer/main.png
-/usr/share/doc/HTML/id/dragonplayer/playmedia.png
 /usr/share/doc/HTML/it/dragonplayer/index.cache.bz2
 /usr/share/doc/HTML/it/dragonplayer/index.docbook
 /usr/share/doc/HTML/nl/dragonplayer/index.cache.bz2
@@ -207,7 +194,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/qt5/plugins/dragonpart.so
+/usr/lib64/qt5/plugins/kf5/parts/dragonpart.so
 
 %files license
 %defattr(0644,root,root,0755)
@@ -221,7 +208,6 @@ popd
 /usr/share/man/es/man1/dragon.1
 /usr/share/man/et/man1/dragon.1
 /usr/share/man/fr/man1/dragon.1
-/usr/share/man/id/man1/dragon.1
 /usr/share/man/it/man1/dragon.1
 /usr/share/man/man1/dragon.1
 /usr/share/man/nl/man1/dragon.1
