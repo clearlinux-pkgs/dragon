@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : dragon
-Version  : 19.08.3
-Release  : 15
-URL      : https://download.kde.org/stable/applications/19.08.3/src/dragon-19.08.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.3/src/dragon-19.08.3.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.3/src/dragon-19.08.3.tar.xz.sig
+Version  : 19.12.0
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.0/src/dragon-19.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.0/src/dragon-19.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.0/src/dragon-19.12.0.tar.xz.sig
 Summary  : A multimedia player where the focus is on simplicity, instead of features
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -92,14 +92,15 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-19.08.3
+%setup -q -n dragon-19.12.0
+cd %{_builddir}/dragon-19.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573157773
+export SOURCE_DATE_EPOCH=1576543659
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -116,11 +117,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1573157773
+export SOURCE_DATE_EPOCH=1576543659
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
-cp %{_builddir}/dragon-19.08.3/COPYING %{buildroot}/usr/share/package-licenses/dragon/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
-cp %{_builddir}/dragon-19.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/dragon/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/dragon-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/dragon/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
+cp %{_builddir}/dragon-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/dragon/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
