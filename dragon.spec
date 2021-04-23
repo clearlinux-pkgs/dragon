@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : dragon
-Version  : 20.12.3
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/dragon-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/dragon-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/dragon-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/dragon-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/dragon-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/dragon-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0
+License  : GFDL-1.2 GPL-2.0 GPL-3.0
 Requires: dragon-bin = %{version}-%{release}
 Requires: dragon-data = %{version}-%{release}
 Requires: dragon-lib = %{version}-%{release}
@@ -93,15 +93,15 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-20.12.3
-cd %{_builddir}/dragon-20.12.3
+%setup -q -n dragon-21.04.0
+cd %{_builddir}/dragon-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618655130
+export SOURCE_DATE_EPOCH=1619202473
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -117,11 +117,15 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618655130
+export SOURCE_DATE_EPOCH=1619202473
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
-cp %{_builddir}/dragon-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/dragon/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
-cp %{_builddir}/dragon-20.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/dragon/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/dragon-21.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/dragon-21.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/dragon/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/dragon-21.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/dragon-21.04.0/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/dragon/6091db0aead0d90182b93d3c0d09ba93d188f907
+cp %{_builddir}/dragon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/dragon/7d9831e05094ce723947d729c2a46a09d6e90275
+cp %{_builddir}/dragon-21.04.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/dragon/7d9831e05094ce723947d729c2a46a09d6e90275
 pushd clr-build
 %make_install
 popd
@@ -212,8 +216,11 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/dragon/0b184ad51ba2a79e85d2288d5fcf8a1ea0481ea4
-/usr/share/package-licenses/dragon/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+/usr/share/package-licenses/dragon/2a638514c87c4923c0570c55822620fad56f2a33
+/usr/share/package-licenses/dragon/6091db0aead0d90182b93d3c0d09ba93d188f907
+/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde
+/usr/share/package-licenses/dragon/7d9831e05094ce723947d729c2a46a09d6e90275
+/usr/share/package-licenses/dragon/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files man
 %defattr(0644,root,root,0755)
