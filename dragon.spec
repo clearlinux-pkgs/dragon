@@ -6,7 +6,7 @@
 #
 Name     : dragon
 Version  : 21.12.1
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/release-service/21.12.1/src/dragon-21.12.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.12.1/src/dragon-21.12.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.12.1/src/dragon-21.12.1.tar.xz.sig
@@ -101,7 +101,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641945962
+export SOURCE_DATE_EPOCH=1643435006
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -117,7 +117,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1641945962
+export SOURCE_DATE_EPOCH=1643435006
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp %{_builddir}/dragon-21.12.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde
@@ -158,6 +158,7 @@ popd
 /usr/share/metainfo/org.kde.dragonplayer.appdata.xml
 /usr/share/solid/actions/dragonplayer-openaudiocd.desktop
 /usr/share/solid/actions/dragonplayer-opendvd.desktop
+/usr/share/xdg/dragonplayerrc
 
 %files doc
 %defattr(0644,root,root,0755)
