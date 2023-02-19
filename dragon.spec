@@ -6,7 +6,7 @@
 #
 Name     : dragon
 Version  : 22.12.2
-Release  : 50
+Release  : 51
 URL      : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz.sig
@@ -104,7 +104,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675649744
+export SOURCE_DATE_EPOCH=1676830748
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1675649744
+export SOURCE_DATE_EPOCH=1676830748
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp %{_builddir}/dragon-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde || :
