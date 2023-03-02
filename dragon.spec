@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : dragon
-Version  : 22.12.2
-Release  : 51
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/dragon-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 52
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/dragon-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/dragon-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/dragon-22.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 GPL-3.0
@@ -96,15 +96,15 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-22.12.2
-cd %{_builddir}/dragon-22.12.2
+%setup -q -n dragon-22.12.3
+cd %{_builddir}/dragon-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676830748
+export SOURCE_DATE_EPOCH=1677787036
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,7 +120,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676830748
+export SOURCE_DATE_EPOCH=1677787036
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp %{_builddir}/dragon-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde || :
@@ -208,8 +208,6 @@ popd
 /usr/share/doc/HTML/sv/dragonplayer/index.cache.bz2
 /usr/share/doc/HTML/sv/dragonplayer/index.docbook
 /usr/share/doc/HTML/sv/dragonplayer/main.png
-/usr/share/doc/HTML/tr/dragonplayer/index.cache.bz2
-/usr/share/doc/HTML/tr/dragonplayer/index.docbook
 /usr/share/doc/HTML/uk/dragonplayer/index.cache.bz2
 /usr/share/doc/HTML/uk/dragonplayer/index.docbook
 /usr/share/doc/HTML/uk/dragonplayer/main.png
@@ -242,7 +240,6 @@ popd
 /usr/share/man/sr/man1/dragon.1
 /usr/share/man/sr@latin/man1/dragon.1
 /usr/share/man/sv/man1/dragon.1
-/usr/share/man/tr/man1/dragon.1
 /usr/share/man/uk/man1/dragon.1
 
 %files locales -f dragonplayer.lang
