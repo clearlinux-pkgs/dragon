@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : dragon
-Version  : 23.08.0
-Release  : 58
-URL      : https://download.kde.org/stable/release-service/23.08.0/src/dragon-23.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.0/src/dragon-23.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.0/src/dragon-23.08.0.tar.xz.sig
+Version  : 23.08.1
+Release  : 59
+URL      : https://download.kde.org/stable/release-service/23.08.1/src/dragon-23.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.1/src/dragon-23.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.1/src/dragon-23.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 GPL-3.0
@@ -93,15 +93,15 @@ man components for the dragon package.
 
 
 %prep
-%setup -q -n dragon-23.08.0
-cd %{_builddir}/dragon-23.08.0
+%setup -q -n dragon-23.08.1
+cd %{_builddir}/dragon-23.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693015396
+export SOURCE_DATE_EPOCH=1695076105
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -134,7 +134,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693015396
+export SOURCE_DATE_EPOCH=1695076105
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/dragon
 cp %{_builddir}/dragon-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/dragon/7697008f58568e61e7598e796eafc2a997503fde || :
